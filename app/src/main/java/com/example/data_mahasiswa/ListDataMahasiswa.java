@@ -1,0 +1,14 @@
+package com.example.data_mahasiswa;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+public class ListDataMahasiswa extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_list_data_mahasiswa);
+    }
+}
