@@ -63,7 +63,7 @@ public class InputData extends AppCompatActivity {
                     person.setJenis_kelamin(edtJenis.getText().toString());
                     person.setAlamat(edtAlamat.getText().toString());
                     db.insert(person);
-                    Intent move = new Intent(context, MainActivity.class);
+                    Intent move = new Intent(context, ListDataMahasiswa.class);
                     context.startActivity(move);
                 }
                 if (label.equals("Update")){
@@ -73,7 +73,7 @@ public class InputData extends AppCompatActivity {
                     person.setJenis_kelamin(edtJenis.getText().toString());
                     person.setAlamat(edtAlamat.getText().toString());
                     db.update(person);
-                    Intent move = new Intent(context, MainActivity.class);
+                    Intent move = new Intent(context, ListDataMahasiswa.class);
                     context.startActivity(move);
                 }
             }

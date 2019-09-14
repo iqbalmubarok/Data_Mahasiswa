@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class ListDataMahasiswa extends AppCompatActivity implements RecyclerDataAdapter.OnUserClickListener{
+public class ListDataMahasiswa extends AppCompatActivity implements RecyclerDataAdapter.OnUserActionListener{
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
@@ -61,7 +61,7 @@ public class ListDataMahasiswa extends AppCompatActivity implements RecyclerData
     }
 
     @Override
-    public void OnUserClickListner(final Person currentPerson, String action) {
+    public void onUserAction(final Person currentPerson) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(context);
         dialog.setTitle("Pilihan")
                 .setPositiveButton("Lihat Data", new DialogInterface.OnClickListener() {
