@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("Dashboard");
 
         lihatdata = findViewById(R.id.btnLihatData);
         inputdata = findViewById(R.id.btnInputData);
