@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class ListDataMahasiswa extends AppCompatActivity implements RecyclerDataAdapter.OnUserActionListener{
+public class ListDataMahasiswa extends AppCompatActivity implements RecyclerDataAdapter.OnUserClickListener{
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
@@ -55,14 +55,20 @@ public class ListDataMahasiswa extends AppCompatActivity implements RecyclerData
     }
 
     @Override
-    public void onUserAction(final Person person){
+    public void onBackPressed(){
+        Intent move = new Intent(this, MainActivity.class);
+        startActivity(move);
+    }
+
+    @Override
+    public void OnUserClickListner(final Person currentPerson, String action) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(context);
         dialog.setTitle("Pilihan")
                 .setPositiveButton("Lihat Data", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent lihatData = new Intent(context, DetailData.class);
-                        lihatData.putExtra("DETAIL_INTENT",person);
+                        lihatData.putExtra("DETAIL_INTENT", currentPerson);
                         context.startActivity(lihatData);
                     }
                 })
@@ -70,7 +76,7 @@ public class ListDataMahasiswa extends AppCompatActivity implements RecyclerData
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent ubahData = new Intent(context, InputData.class);
-                        ubahData.putExtra("UPDATE_INTENT", person);
+                        ubahData.putExtra("UPDATE_INTENT", currentPerson);
                         ubahData.putExtra("UPDATE_ACTION", "Update");
                         context.startActivity(ubahData);
                     }
@@ -79,17 +85,11 @@ public class ListDataMahasiswa extends AppCompatActivity implements RecyclerData
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         DatabaseHelper db = new DatabaseHelper(context);
-                        db.delete(person.getNomor());
+                        db.delete(currentPerson.getNomor());
                         setupRecyclerview();
                     }
                 });
         AlertDialog dialog2 = dialog.create();
         dialog2.show();
-    }
-
-    @Override
-    public void onBackPressed(){
-        Intent move = new Intent(this, MainActivity.class);
-        startActivity(move);
     }
 }
