@@ -22,6 +22,7 @@ public class InputData extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_data);
+        getSupportActionBar().setTitle("Input Data");
         context = this;
 
         aksi = getIntent().getStringExtra("UPDATE_ACTION");
@@ -41,6 +42,7 @@ public class InputData extends AppCompatActivity {
 
         if (aksi.equals("Update")){
             btnSubmit.setText("Update");
+            getSupportActionBar().setTitle("Update Data");
             edtNo.setText(nomor);
             edtNo.setFocusable(false);
             edtName.setText(updated.getNama());

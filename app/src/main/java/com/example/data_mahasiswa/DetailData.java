@@ -13,6 +13,7 @@ public class DetailData extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_data);
+        getSupportActionBar().setTitle("Detail Data");
 
         edtNo = findViewById(R.id.txtNo);
         edtNama = findViewById(R.id.txtNama);
